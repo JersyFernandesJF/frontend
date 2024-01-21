@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import twitter from "../assets/twitter.png";
-import facebook from "../assets/facebook.png";
-import youtube from "../assets/youtube.png";
-import instagram from "../assets/instagram.png";
-import location from "../assets/location.png";
+import twitter from "../../assets/twitter.png";
+import facebook from "../../assets/facebook.png";
+import youtube from "../../assets/youtube.png";
+import instagram from "../../assets/instagram.png";
+import location from "../../assets/location.png";
+
 const Footer = () => {
   const [getHelp, setGetHelp] = useState(false);
   const [aboutNike, setAboutNike] = useState(false);
