@@ -29,7 +29,7 @@ const Navbar = () => {
           <Link to="/">
             <img src={NikeLogo} alt="" />
           </Link>
-          <div className="hidden lg:flex space-x-8">
+          <div className="hidden lg:flex space-x-8 cursor-pointer">
             <Link to="/home">
               <h3>New & Featured</h3>
             </Link>
@@ -43,6 +43,7 @@ const Navbar = () => {
             <img src={search} className="w-7 h-7" alt="" />
             <input
               type="text"
+              placeholder="Search"
               className="hidden md:block border-2 px-4 py-1 rounded-lg"
             />
             <img src={Bag} className="w-7 h-7" alt="" />
