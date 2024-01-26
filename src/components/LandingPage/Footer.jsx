@@ -107,7 +107,7 @@ const Footer = () => {
           <div className="fourth text-left md:flex md:space-x-10  md:items-center ">
             <div className="fourth-first flex items-center md:space-x-4 my-10 md:my-1 ">
               <img src={location} className="invert w-4 h-4" alt="" />
-              <p>India</p>
+              <p>Portugal</p>
             </div>
             <div className="fourth-second ">
               <p className="cursor-pointer opacity-60 hover:opacity-100">

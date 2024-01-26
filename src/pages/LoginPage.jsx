@@ -3,10 +3,20 @@ import Footer from "../components/LandingPage/Footer";
 import Navbar from "../components/Navbar";
 import logo from "../assets/favicon.ico";
 import { Link, Navigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 
 const LoginPage = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
   return (
     <>
+      {" "}
       <Navbar></Navbar>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -15,8 +25,72 @@ const LoginPage = () => {
             Your Account for <br /> everything nike
           </h2>
         </div>
+
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form></form>
+          <form className="space-y-6">
+            <div>
+              <div className="mt-2">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  {...register("email", {
+                    required: "Email required",
+                    pattern: {
+                      value: /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi,
+                      message: "Email is not valid",
+                    },
+                  })}
+                  autoComplete="email"
+                  placeholder="Email address"
+                  required
+                  className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
+                />
+                {errors.email && (
+                  <p className="text-red-500">{errors.email.message}</p>
+                )}
+              </div>
+            </div>
+
+            <div>
+              <div className="mt-2">
+                <input
+                  id="password"
+                  {...register("password", {
+                    required: "Password required",
+                  })}
+                  type="password"
+                  autoComplete="current-password"
+                  required
+                  placeholder="Password"
+                  className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
+                />
+              </div>
+
+              <div className="w-full text-right">
+                <div className="text-sm">
+                  <a href="#" className="font-semibold opacity-50">
+                    Forgot password?
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-xs tracking-wider text-center opacity-75">
+              By logging in, you agree to Nike's{" "}
+              <span className="underline">Privacy Policy</span> and
+              <span className="underline"> Terms of Use</span> .
+            </p>
+            <div>
+              <button
+                type="submit"
+                className="flex uppercase font-Oswald tracking-tighter w-full justify-center rounded-sm bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Login
+              </button>
+            </div>
+          </form>
+
           <p className="mt-4 text-center text-sm text-gray-500">
             Not a member?
             <Link
