@@ -17,7 +17,9 @@ const Navbar = () => {
           <div className="first-second items-center flex">
             <div className="flex items-center relative">
               <p>opt</p>
-              <p>OIHjkn</p>
+              <Link to="/login">
+                <p>OIHjkn</p>
+              </Link>
             </div>
           </div>
         </div>
